@@ -13,36 +13,52 @@
       color: white;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* ✅ 文字放在画面下方，不挡住脸 */
+      justify-content: flex-end;
       align-items: center;
       text-align: center;
 
-      /* ✅ 使用你的真实图片地址（已验证可访问） */
+      /* ✅ 背景改为 cover + 上对齐（减少头部裁切） */
       background: url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png")
       no-repeat top center;
+      background-size: cover;
 
-      background-size: contain; /* ✅ 显示整张图，不裁剪人物 */
-      background-color: #000;   /* ✅ 剩余区域用黑色填充，保持电影氛围 */
+      /* ✅ 给画面底部加渐变，文字会更清晰 */
+      position: relative;
+    }
+
+    /* 渐变遮罩层 */
+    body::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 45%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+      pointer-events: none;
     }
 
     h1 {
-      font-size: 38px;
+      position: relative;
+      font-size: 42px;
       font-weight: bold;
-      text-shadow: 0 0 12px rgba(0,0,0,0.8);
+      text-shadow: 0 0 18px rgba(0,0,0,1);
       margin-bottom: 6px;
     }
 
     p {
-      font-size: 18px;
+      position: relative;
+      font-size: 20px;
       max-width: 90%;
-      text-shadow: 0 0 10px rgba(0,0,0,0.8);
-      margin-bottom: 30px;
       line-height: 1.6;
+      margin-bottom: 36px;
+      text-shadow: 0 0 12px rgba(0,0,0,1);
     }
 
     .btn {
+      position: relative;
       margin-bottom: 50px;
-      padding: 12px 28px;
+      padding: 14px 32px;
       font-size: 18px;
       border-radius: 8px;
       border: none;
@@ -50,7 +66,7 @@
       background: rgba(255,255,255,0.85);
       color: #000;
       font-weight: bold;
-      transition: 0.3s;
+      transition: 0.25s;
     }
 
     .btn:hover {
@@ -68,5 +84,4 @@
   <button class="btn" onclick="alert('未来的旅程，才刚刚开始。')">进入世界</button>
 
 </body>
-
 </html>
