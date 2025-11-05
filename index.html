@@ -5,7 +5,7 @@
   <title>MAX · 来自未来的影像旅者</title>
 
   <style>
-     {
+    body {
       margin: 0;
       padding: 0;
       height: 100vh;
@@ -13,32 +13,36 @@
       color: white;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end; /* ✅ 文字放在画面下方，不挡住脸 */
       align-items: center;
       text-align: center;
 
-      /* ✅ 这里已替换真实可显示图片的地址 */
-      background: url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png") 
-      no-repeat center center/cover;
+      /* ✅ 使用你的真实图片地址（已验证可访问） */
+      background: url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png")
+      no-repeat top center;
+
+      background-size: contain; /* ✅ 显示整张图，不裁剪人物 */
+      background-color: #000;   /* ✅ 剩余区域用黑色填充，保持电影氛围 */
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 38px;
       font-weight: bold;
-      text-shadow: 0 0 12px rgba(0,0,0,0.7);
-      margin-bottom: 14px;
+      text-shadow: 0 0 12px rgba(0,0,0,0.8);
+      margin-bottom: 6px;
     }
 
     p {
-      font-size: 20px;
-      max-width: 85%;
-      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+      font-size: 18px;
+      max-width: 90%;
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
+      margin-bottom: 30px;
       line-height: 1.6;
     }
 
     .btn {
-      margin-top: 32px;
-      padding: 14px 30px;
+      margin-bottom: 50px;
+      padding: 12px 28px;
       font-size: 18px;
       border-radius: 8px;
       border: none;
@@ -56,25 +60,7 @@
   </style>
 </head>
 
-< {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: "Arial", sans-serif;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  /* ✅ 调整背景让头像完整显示 */
-  background: url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png")
-  no-repeat top center;
-  background-size: contain; /* ✅ 显示整张图，不裁剪 */
-  background-color: #000; /* ✅ 其余空白区域用黑色填充，电影感更强 */
-}
->
+<body>
 
   <h1>MAX · 来自未来的影像旅者</h1>
   <p>每一天，我都在拍摄自己的电影。影像是一种语言，我用它讲述人生的旅程。</p>
