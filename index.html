@@ -56,7 +56,25 @@
   </style>
 </head>
 
-<body>
+<body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Arial", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* ✅ 调整背景让头像完整显示 */
+  background: url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png")
+  no-repeat top center;
+  background-size: contain; /* ✅ 显示整张图，不裁剪 */
+  background-color: #000; /* ✅ 其余空白区域用黑色填充，电影感更强 */
+}
+>
 
   <h1>MAX · 来自未来的影像旅者</h1>
   <p>每一天，我都在拍摄自己的电影。影像是一种语言，我用它讲述人生的旅程。</p>
