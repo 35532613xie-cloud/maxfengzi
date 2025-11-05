@@ -2,104 +2,294 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>MAX · 来自未来的影像旅者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐山疯子 · AI学习之旅：我的技术成长史</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Inter 字体 (作为未来感网站的默认字体) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap">
 
   <style>
+    /* 基础样式和字体 */
     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      font-family: "Arial", sans-serif;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      text-align: center;
-
-      /* ✅ 背景改为 cover + 上对齐（减少头部裁切） */
-      background: url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png")
-      no-repeat top center;
-      background-size: cover;
-
-      /* ✅ 给画面底部加渐变，文字会更清晰 */
-      position: relative;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #000;
+      color: #e0e0e0;
     }
 
-    /* 渐变遮罩层 */
-    body::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 45%;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
-      pointer-events: none;
+    /* 自定义背景：深邃的宇宙渐变 */
+    .bg-deep-space {
+      /* 从深蓝黑到纯黑的径向渐变，营造未来感和深度 */
+      background: radial-gradient(circle at top, #0a0a20 0%, #000000 100%);
     }
 
-    h1 {
-      position: relative;
-      font-size: 42px;
-      font-weight: bold;
-      text-shadow: 0 0 18px rgba(0,0,0,1);
-      margin-bottom: 6px;
+    /* 强调色：未来感的霓虹金 */
+    .text-accent {
+        color: #FFD700; /* Neon Gold */
+    }
+    .border-accent {
+        border-color: #FFD700;
     }
 
-    p {
-      position: relative;
-      font-size: 20px;
-      max-width: 90%;
-      line-height: 1.6;
-      margin-bottom: 36px;
-      text-shadow: 0 0 12px rgba(0,0,0,1);
+    /* 按钮 hover 效果 */
+    .btn-primary:hover {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        transform: translateY(-2px);
     }
 
-    .btn {
-      position: relative;
-      margin-bottom: 50px;
-      padding: 14px 32px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      background: rgba(255,255,255,0.85);
-      color: #000;
-      font-weight: bold;
-      transition: 0.25s;
+    /* 标题下方的分隔线样式 */
+    .section-divider {
+        width: 100px;
+        height: 3px;
+        background-color: #FFD700;
+        margin: 1rem auto 3rem;
+        border-radius: 9999px;
     }
 
-    .btn:hover {
-      background: #fff;
-      transform: scale(1.06);
+    /* 响应式导航栏颜色调整 */
+    .nav-link {
+        transition: color 0.2s;
+    }
+    .nav-link:hover {
+        color: #FFD700;
     }
   </style>
 </head>
-  
-  <h1>MAX · 来自未来的影像旅者</h1>
-  <p>每一天，我都在拍摄自己的电影。影像是一种语言，我用它讲述人生的旅程。</p>
+<body class="overflow-x-hidden bg-deep-space">
 
-  <button class="btn" onclick="alert('未来的旅程，才刚刚开始。')">进入世界</button>
+  <!-- 导航栏 -->
+  <header class="sticky top-0 z-40 bg-black bg-opacity-70 backdrop-blur-sm shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <!-- 品牌/IP 名称 -->
+      <a href="#hero" class="text-2xl font-black text-accent tracking-widest hover:opacity-80 transition duration-150">
+        乐山疯子 <span class="text-white font-light">AI</span>
+      </a>
+      <!-- 桌面导航 -->
+      <nav class="hidden md:flex space-x-8 font-semibold">
+        <a href="#milestones" class="nav-link text-white">学习里程碑</a>
+        <a href="#projects" class="nav-link text-white">AI项目与笔记</a>
+        <a href="#connect" class="nav-link text-white">联系与合作</a>
+      </nav>
+      <!-- 移动端汉堡菜单 (此处仅为占位符，不实现复杂的JS逻辑，保持单文件简洁) -->
+      <button class="md:hidden text-white p-2 rounded-lg hover:bg-gray-800 transition duration-150">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </header>
 
+  <!-- 1. 英雄区 (Hero) -->
+  <section id="hero" class="h-[80vh] flex items-center justify-center text-center px-4 pt-16 bg-deep-space">
+    <div class="max-w-5xl">
+      <p class="text-xl sm:text-2xl text-accent font-semibold mb-4 tracking-wider uppercase">
+        乐山疯子 | AI 探索者与实践者
+      </p>
+      <h1 class="text-6xl sm:text-8xl lg:text-[120px] font-extrabold text-white leading-none mb-6">
+        AI 学习之旅
+      </h1>
+      <p class="text-lg sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+        从零基础到深度学习：我记录了在人工智能领域探索、实践和成长的每一个脚印。
+      </p>
+      <a href="#milestones" class="
+        btn-primary inline-block bg-accent text-black font-bold py-3 px-8 rounded-full
+        transition duration-300 transform hover:scale-105 shadow-xl
+        hover:bg-yellow-300
+      ">
+        查看我的学习路线图
+      </a>
+    </div>
+  </section>
+
+  <!-- 2. 学习里程碑 (Milestones) -->
+  <section id="milestones" class="py-24 px-4 bg-gray-900">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-white">
+        核心学习阶段
+      </h2>
+      <div class="section-divider"></div>
+
+      <div class="grid md:grid-cols-3 gap-10 mt-12 text-left">
+        <!-- 里程碑卡片 1：基础篇 -->
+        <div class="p-6 bg-gray-800 rounded-xl shadow-2xl border-t-4 border-accent transition duration-300 hover:scale-[1.02]">
+          <span class="text-accent text-3xl font-bold mb-3 block">01</span>
+          <h3 class="text-2xl font-bold text-white mb-3">基础篇：Python与算法</h3>
+          <p class="text-gray-400">
+            掌握 Python 核心编程能力，深入理解数据结构和常用算法，为复杂的 AI 模型搭建坚实基础。
+          </p>
+        </div>
+        <!-- 里程碑卡片 2：深度篇 -->
+        <div class="p-6 bg-gray-800 rounded-xl shadow-2xl border-t-4 border-accent transition duration-300 hover:scale-[1.02]">
+          <span class="text-accent text-3xl font-bold mb-3 block">02</span>
+          <h3 class="text-2xl font-bold text-white mb-3">深度篇：深度学习框架</h3>
+          <p class="text-gray-400">
+            专研 TensorFlow/PyTorch 等主流框架，理解卷积神经网络 (CNN) 和循环神经网络 (RNN) 的原理与应用。
+          </p>
+        </div>
+        <!-- 里程碑卡片 3：实践篇 -->
+        <div class="p-6 bg-gray-800 rounded-xl shadow-2xl border-t-4 border-accent transition duration-300 hover:scale-[1.02]">
+          <span class="text-accent text-3xl font-bold mb-3 block">03</span>
+          <h3 class="text-2xl font-bold text-white mb-3">实践篇：项目与部署</h3>
+          <p class="text-gray-400">
+            将理论知识转化为实际项目，从数据清洗到模型训练，再到最终的云端部署与优化。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. AI项目与笔记 (Projects) -->
+  <section id="projects" class="py-24 px-4 bg-deep-space">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-white text-center">
+        我的 AI 项目与学习笔记
+      </h2>
+      <div class="section-divider"></div>
+
+      <!-- 项目网格 -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 项目 1：NLP 情感分析 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-accent/40 group">
+          <!-- 占位图 (使用 placehold.co 确保加载稳定) -->
+          <div class="h-48 bg-cover bg-center flex items-center justify-center" style="background-color: #1a1a1a;">
+            <span class="text-white text-4xl font-bold">NLP</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-accent group-hover:text-white transition duration-200 mb-2">NLP 情感分析模型</h3>
+            <p class="text-gray-400 text-sm">
+              基于 BERT/Transformer 架构，实现对社交媒体评论的情感倾向分类。精确度：92.5%。
+            </p>
+          </div>
+        </div>
+        
+        <!-- 项目 2：图像识别 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-accent/40 group">
+          <div class="h-48 bg-cover bg-center flex items-center justify-center" style="background-color: #2b2b2b;">
+            <span class="text-white text-4xl font-bold">CV</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-accent group-hover:text-white transition duration-200 mb-2">图像识别 (CNN)</h3>
+            <p class="text-gray-400 text-sm">
+              使用 ResNet 架构训练的分类模型，应用于交通标志识别，重点优化鲁棒性。
+            </p>
+          </div>
+        </div>
+
+        <!-- 项目 3：强化学习笔记 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-accent/40 group">
+          <div class="h-48 bg-cover bg-center flex items-center justify-center" style="background-color: #3c3c3c;">
+            <span class="text-white text-4xl font-bold">RL</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-accent group-hover:text-white transition duration-200 mb-2">强化学习基础笔记</h3>
+            <p class="text-gray-400 text-sm">
+              对 Q-Learning 和 Policy Gradient 核心思想的详细解读和代码实现总结。
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 更多作品 CTA -->
+      <div class="text-center mt-16">
+        <button onclick="showMessage('笔记与项目持续更新中...')" class="
+          btn-primary inline-block bg-gray-700 text-white font-bold py-3 px-8 rounded-full
+          transition duration-300 transform hover:scale-105 shadow-xl border border-gray-600
+        ">
+          加载更多学习记录...
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 联系我们 (Connect) -->
+  <section id="connect" class="py-24 px-4 bg-gray-900 border-t border-gray-800">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-white">
+        连接我的 AI 探索
+      </h2>
+      <div class="section-divider"></div>
+      
+      <p class="text-lg text-gray-400 mb-10">
+        欢迎交流 AI 学习心得、探讨合作机会或进行技术提问。
+      </p>
+
+      <!-- 社交媒体/联系方式 -->
+      <div class="flex justify-center space-x-6">
+        <!-- 占位社交图标 (使用 Lucide SVG 替代 FontAwesome) -->
+        <a href="#" class="text-accent hover:text-white transition duration-200" aria-label="Github">
+            <!-- Github Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3.2-1 3.2-4.2 3.2-4.2a1.8 1.8 0 0 0-1-1.2c.4-1 .4-2.2 0-3.2C15.8 4.7 15 4 15 4c-1.4 0-2.4 1-3 2a9.7 9.7 0 0 0-6 0c-.6-1-1.6-2-3-2a1.8 1.8 0 0 0-1 1.2c-.4 1-.4 2.2 0 3.2a4.8 4.8 0 0 0-1 3.2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/></svg>
+        </a>
+        <a href="#" class="text-accent hover:text-white transition duration-200" aria-label="Blog/Notes">
+            <!-- File Text Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7L15 2z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 15h8"/><path d="M8 19h8"/><path d="M8 11h8"/></svg>
+        </a>
+        <a href="#" class="text-accent hover:text-white transition duration-200" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+      
+      <!-- 底部版权信息 -->
+      <footer class="mt-20 text-sm text-gray-500">
+        &copy; 2025 乐山疯子 · AI学习之旅. 技术成长 | 持续迭代。
+      </footer>
+    </div>
+  </section>
+
+  <!-- 消息提示框 Modal 结构 (用于替代 alert()) -->
+  <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center p-4 z-50">
+    <div class="bg-gray-900 p-8 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0 border border-accent" id="modal-content">
+      <h3 class="text-xl font-bold text-accent mb-4">系统消息</h3>
+      <p class="text-gray-300 mb-6" id="modal-text">这是一条占位消息。</p>
+      <button onclick="closeModal()" class="w-full bg-accent text-black font-semibold py-3 rounded-lg hover:bg-yellow-300 transition duration-150">
+        确认
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // --- 脚本功能 ---
+    
+    // 1. 模态框 (替代 alert())
+    const modal = document.getElementById('message-modal');
+    const modalContent = document.getElementById('modal-content');
+    const modalText = document.getElementById('modal-text');
+
+    function showMessage(message) {
+      modalText.textContent = message;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // 动画效果
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeModal() {
+      // 动画效果
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 300); // 等待动画结束
+    }
+
+    // 在页面加载后，隐藏初始的加载错误提示（如果有）
+    document.addEventListener('DOMContentLoaded', () => {
+        // 确保导航链接可以平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+
+  </script>
 </body>
 </html>
-  </p>
-  </div>
-</section>
-
-<!-- 第二屏：分身世界观 -->
-<section class="second-screen">
-  <div class="content-box">
-    <h2>平行世界的我</h2>
-    <p>
-      我不是唯一的我。<br>
-      在无数平行的时间里，
-      有无数个“我”正在经历不同的人生。<br><br>
-      有的在冬泳，有的在行走，有的在记录。<br>
-      而我，是那个把它们带回现实的人。<br><br>
-      我拍下它们，不是为了记住，<br>
-      而是为了证明——我们曾经存在。
-    </p>
-  </div>
-</section>
-
