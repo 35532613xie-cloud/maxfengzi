@@ -1,83 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MAX · 个人影像宇宙</title>
+  <meta charset="UTF-8">
+  <title>MAX · 来自未来的影像旅者</title>
 
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: "Helvetica Neue", sans-serif;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.85);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-image 1s ease-in-out;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: "Arial", sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
 
-/* 内容居中盒子 */
-.container {
-  text-align: center;
-  background: rgba(0,0,0,0.45);
-  padding: 30px 50px;
-  border-radius: 16px;
-  backdrop-filter: blur(6px);
-  animation: fadeIn 1.3s ease-out forwards;
-}
+      /* ✅ 这里已替换真实可显示图片的地址 */
+      background: url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png") 
+      no-repeat center center/cover;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 0 0 12px rgba(0,0,0,0.7);
+      margin-bottom: 14px;
+    }
 
-h1 { font-size: 40px; margin-bottom: 10px; }
-p { font-size: 18px; margin-bottom: 28px; }
+    p {
+      font-size: 20px;
+      max-width: 85%;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+      line-height: 1.6;
+    }
 
-.btn {
-  display: inline-block;
-  padding: 14px 30px;
-  background: #ffcc00;
-  color: black;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
-}
+    .btn {
+      margin-top: 32px;
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: rgba(255,255,255,0.85);
+      color: #000;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-.btn:hover { background: white; transform: scale(1.08); }
-</style>
-
+    .btn:hover {
+      background: #fff;
+      transform: scale(1.06);
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
   <h1>MAX · 来自未来的影像旅者</h1>
-  <p>每一天，都在拍摄自己的人生电影。</p>
-  <a class="btn" href="#" target="_blank">观看我的短片集</a>
-</div>
+  <p>每一天，我都在拍摄自己的电影。影像是一种语言，我用它讲述人生的旅程。</p>
 
-<script>
-// 尝试本地路径加载
-let img = new Image();
-img.src = "poster.png";
-
-// 成功加载 → 使用本地图片
-img.onload = function() {
-  document.body.style.backgroundImage = 'url("poster.png")';
-};
-
-// 加载失败 → 使用 raw 链接保证 100% 显示
-img.onerror = function() {
-  document.body.style.backgroundImage = 'url("https://raw.githubusercontent.com/35532613xie-cloud/maxfengzi/main/poster.png")';
-};
-</script>
+  <button class="btn" onclick="alert('未来的旅程，才刚刚开始。')">进入世界</button>
 
 </body>
+
 </html>
